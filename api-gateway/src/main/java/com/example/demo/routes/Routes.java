@@ -1,9 +1,16 @@
 package com.example.demo.routes;
 
+import org.springframework.cloud.gateway.server.mvc.filter.CircuitBreakerFilterFunctions;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.servlet.function.*;
 
+
+import java.net.URI;
+import java.time.LocalDateTime;
+import java.util.Map;
 
 import static org.springframework.cloud.gateway.server.mvc.filter.BeforeFilterFunctions.uri;
 import static org.springframework.cloud.gateway.server.mvc.filter.FilterFunctions.rewritePath;
@@ -17,6 +24,8 @@ public class Routes {
         return route("product_route")
                 .route(RequestPredicates.path("/api/product"), http())
                 .before(uri("http://localhost:8080"))
+                .filter(CircuitBreakerFilterFunctions.circuitBreaker("productServiceCircuitBreaker",
+                        URI.create("forward:/fallbackRoute")))
                 .build();
     }
     @Bean
@@ -33,6 +42,8 @@ public class Routes {
         return route("inventory_route")
                 .route(RequestPredicates.path("/api/inventory"), http())
                 .before(uri("http://localhost:8082"))
+                .filter(CircuitBreakerFilterFunctions.circuitBreaker("inventoryServiceCircuitBreaker",
+                        URI.create("forward:/fallbackRoute")))
                 .build();
     }
     @Bean
@@ -49,6 +60,8 @@ public class Routes {
         return route("order_route")
                 .route(RequestPredicates.path("/api/order"), http())
                 .before(uri("http://localhost:8081"))
+                .filter(CircuitBreakerFilterFunctions.circuitBreaker("orderServiceCircuitBreaker",
+                        URI.create("forward:/fallbackRoute")))
                 .build();
     }
     @Bean
@@ -57,6 +70,21 @@ public class Routes {
                 .route(RequestPredicates.path("/aggregate/order-service/v3/api-docs"), http())
                 .before(uri("http://localhost:8080"))
                 .filter(rewritePath("/aggregate/order-service/v3/api-docs", "/api-docs"))
+                .build();
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> fallBackRoute() {
+        return route("fallbackRoute")
+                .route(RequestPredicates.path("/fallbackRoute"), request ->  // Changed: Use .route() for all methods, path is /fallback
+                        ServerResponse.status(HttpStatus.SERVICE_UNAVAILABLE)
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .body(Map.of(
+                                        "error", "Service Unavailable",
+                                        "message", "The requested service is currently unavailable. Please try again later.",
+                                        "timestamp", LocalDateTime.now().toString()
+                                ))
+                )
                 .build();
     }
 }

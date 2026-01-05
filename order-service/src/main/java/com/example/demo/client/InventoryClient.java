@@ -10,6 +10,3 @@ public interface InventoryClient {
 }
 
 
-
-// spring cloud openfeign help us to delclare a client to communicate with other microservices
-// instead of constructing rest template every time we want to communicate with other microservices

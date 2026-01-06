@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59506800-ef04-4f13-bec7-914464a9bc18" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Microservice-Architechture-Backend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/kind/create-kind-cluster.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/manifest/infrastucture/kafka-mysql.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/manifest/infrastucture/kafka-ui.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/manifest/infrastucture/kafka.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/manifest/infrastucture/keycloak.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/manifest/infrastucture/mongodb.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/manifest/infrastucture/mysql.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/manifest/infrastucture/schema-registry.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/manifest/infrastucture/zookeeper.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +39,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="37foKUjpwbK0jZ4hP6ZfiIFzro5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -56,14 +57,22 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SHELLCHECK.PATH": "/Users/longhoang/Library/Application Support/JetBrains/IntelliJIdea2025.3/plugins/Shell Script/shellcheck",
     "Spring Boot.ProductServiceApplication.executor": "Run",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/longhoang/Desktop/Microservice-Architechture-Backend",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/k8s/manifest" />
+    </key>
+  </component>
   <component name="RunManager" selected="JUnit.ProductServiceApplicationTests">
     <configuration name="ProductServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="product-service" />

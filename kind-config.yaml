@@ -1,0 +1,54 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: microservices-cluster
+nodes:
+  - role: control-plane
+    kubeadmConfigPatches:
+      - |
+        kind: InitConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"
+    extraPortMappings:
+      # API Gateway
+      - containerPort: 30900
+        hostPort: 9000
+        protocol: TCP
+      # Product Service
+      - containerPort: 30800
+        hostPort: 8080
+        protocol: TCP
+      # Order Service
+      - containerPort: 30801
+        hostPort: 8081
+        protocol: TCP
+      # Inventory Service
+      - containerPort: 30802
+        hostPort: 8082
+        protocol: TCP
+      # Notification Service
+      - containerPort: 30803
+        hostPort: 8083
+        protocol: TCP
+      # Keycloak
+      - containerPort: 30181
+        hostPort: 8181
+        protocol: TCP
+      # Kafka UI
+      - containerPort: 30086
+        hostPort: 8086
+        protocol: TCP
+      # MongoDB
+      - containerPort: 30017
+        hostPort: 27017
+        protocol: TCP
+      # MySQL Inventory
+      - containerPort: 30306
+        hostPort: 3306
+        protocol: TCP
+      # MySQL Order
+      - containerPort: 30316
+        hostPort: 3316
+        protocol: TCP
+  - role: worker
+  - role: worker

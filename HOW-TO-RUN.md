@@ -247,9 +247,7 @@ kind delete cluster --name microservices-cluster
 
 ## Building from Root vs Individual Services
 
-### Question: Should I build from root or build each service separately?
 
-**Answer: Both approaches work. Choose based on your needs:**
 
 ### Approach 1: Multi-Module Build (Root POM)
 
